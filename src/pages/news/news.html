@@ -1,0 +1,45 @@
+<!--
+  Generated template for the NewsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<div *ngIf="newdetail" class="new-card">
+    <ion-grid class="over-y">
+        <ion-row>
+            <ion-col col-4>
+                <img src="{{newmain.imageurl}}" style="width:100px;height:100px;" alt="">
+            </ion-col>
+          <ion-col class="new-title" col-8>
+              <button ion-button full outline (click)="Close()">Close</button>
+              
+              <strong>{{newmain.title}}</strong> 
+          </ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col class="new-body">
+             <span [innerHTML]="newmain.body"></span>
+          </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>news</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+    <ion-card *ngFor="let new of listnews" (click)="Loadnew(new.id)">
+        <ion-card-header>
+            {{new.published_on | jsdate}}  ( {{new.source}} )
+          </ion-card-header>
+        <ion-card-content>
+            {{new.title}}
+        </ion-card-content>
+      </ion-card>
+</ion-content>

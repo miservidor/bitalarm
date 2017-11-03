@@ -1,17 +1,56 @@
 <ion-menu [content]="content">
   <ion-header>
     <ion-toolbar>
-      <ion-title>Menu</ion-title>
+      <ion-title>Setting</ion-title>
     </ion-toolbar>
   </ion-header>
 
   <ion-content>
-    <ion-list>
+    <ion-item>
+      <ion-label> Alarm Active</ion-label>
+      <ion-toggle color="secondary" enabled [(ngModel)]="status" (ngModelChange)="ChangeStatus($event)" checked="true"></ion-toggle>
+    </ion-item>
+    <!--ion-list>
       <button menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)">
         {{p.title}}
       </button>
+    </ion-list-->
+    <ion-list>
+      <ion-item>
+        <ion-label>Language</ion-label>
+        <ion-select [(ngModel)]="language" (ngModelChange)="ChangeLanguage($event)">
+          <ion-option value="EN">English</ion-option>
+          <ion-option value="ES">Espanol</ion-option>
+          <ion-option value="DE">Deutsch</ion-option>
+          <ion-option value="FR">Francais</ion-option>
+          <ion-option value="IT">Italian</ion-option>
+        </ion-select>
+      </ion-item>
     </ion-list>
-  </ion-content>
+    <ion-list>
+        <ion-item>
+          <ion-label>Currency</ion-label>
+          <ion-select [(ngModel)]="currency" (ngModelChange)="ChangeCurrency($event)">
+            <ion-option value="USD">USD</ion-option>
+            <ion-option value="EUR">EUR</ion-option>
+            <ion-option value="CHF">CHF</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+      <ion-list>
+          <ion-item>
+            <ion-label>Graphic</ion-label>
+            <ion-select  [(ngModel)]="graphtype" (ngModelChange)="ChangeGraph($event)">
+              <ion-option value="simple" >Simple</ion-option>
+            </ion-select>
+          </ion-item>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          Version Beta 0.5.0
+        </ion-item>
+      </ion-list>
+</ion-content>
 
 </ion-menu>
 

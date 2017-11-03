@@ -1,3 +1,151 @@
 page-home {
+    background: gray !important;
+}
+.negativo{
+    color:red;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.negativo-small{
+    color:red;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
 
+.pricemain{
+    color:#33CDC7;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 3rem;
+}
+
+.pricemain-small{
+    color:#33CDC7;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.positivo{
+    color:greenyellow;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+.positivo-small{
+    color:greenyellow;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+}
+.button{
+    background: #33CDC7;
+    border-radius: 5px;
+    padding: 6px;
+}
+.panelchange{
+    width: 100%;
+    position: absolute;
+    margin-top: 60px;
+}
+
+.slider-wrapper input {
+    width: 200px;
+    height: 20px;
+    right: 0;
+    transform-origin: 75px 75px;
+    transform: rotate(-90deg);
+  }
+
+  .slider-l {
+    -webkit-appearance: none;
+    margin-right:200px;
+    margin-bottom:0px;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transform: rotate(90deg);
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+  .slider-l::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: red;
+    cursor: pointer;
+}
+
+.slider-l::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: red;
+    cursor: pointer;
+}
+.slider-r {
+    -webkit-appearance: none;
+    margin-right:200px;
+    margin-bottom:0px;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    transform: rotate(90deg);
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+  .slider-r::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: greenyellow;
+    cursor: pointer;
+}
+
+.slider-r::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: greenyellow;
+    cursor: pointer;
+}
+.but-time{
+border-radius: 5px;
+padding-top: 4px;
+padding-bottom: 4px; 
+padding-left: 10px;
+padding-right: 10px;
+font-size: 1rem;
+background: rgb(87, 87, 87);
+}
+
+.but-time-akt{
+    border-radius: 5px;
+    padding-top: 4px;
+    padding-bottom: 4px; 
+    padding-left: 10px;
+    padding-right: 10px;
+    font-size: 1rem;
+    background: rgb(51, 148, 238);
+}
+.white-text{
+    color: white;
+}
+.orange-text{
+    color: orange;
+}
+.bottom-text{
+    font-size: 1.2rem;
+}
+.orange-text-bottom{
+    color: orange;
+    font-size: 1.2rem !important;
 }

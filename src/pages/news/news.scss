@@ -1,0 +1,25 @@
+page-news {
+
+    .new-card{
+        position:absolute;
+        margin-top:50px;
+        z-index: 99999;
+        width: 100%;
+        background: white;
+        min-height: 200px;
+        padding: 10px;
+
+    }
+    .new-title{
+        font-size: 2rem;
+    }
+    .new-body{
+        font-size: 1.6rem;
+        text-align: justify;
+    }
+    .over-y{
+        overflow-y: scroll;
+        position: relative;
+    }
+}
+

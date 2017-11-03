@@ -41,6 +41,13 @@ $colors: (
   dark:       #222
 );
 
+ion-content{
+  background-color: #222 !important;
+}
+ion-item{
+  background-color: #222 !important;
+  color: white !important;  
+}
 
 // App iOS Variables
 // --------------------------------------------------
@@ -54,8 +61,25 @@ $colors: (
 // Material Design only Sass variables can go here
 
 
+.toolbar-background-md {
+    border-color: #b2b2b2;
+    background: black !important;
+}
 
-
+.toolbar-title-md {
+    padding: 0 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    color: whitesmoke !important;
+}
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #FBFBFB !important;
+    background-color: transparent;
+}
+  .item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 1px solid #444 !important;
+}
 // App Windows Variables
 // --------------------------------------------------
 // Windows only Sass variables can go here

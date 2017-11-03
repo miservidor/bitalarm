@@ -3,16 +3,109 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Home</ion-title>
+    <ion-title>BTC Alarm - $ {{btcusd}} USD</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  <h3>Ionic Menu Starter</h3>
 
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
+  <ion-grid>
+  <ion-row>
+    <ion-col col-3><span class="negativo">{{dualValue2.lower}}</span><br> <span class="negativo-small">Min </span></ion-col>
+    <ion-col col-6 style="text-align:center"><span class="pricemain">$ {{btcusd}}</span><br><span class="positivo" [ngClass]="{'positivo':variacion>0, 'negativo':variacion<=0}" >24H {{variacion}} %  BTC / USD</span><span class="pricemain-small"></span></ion-col>
+    <ion-col col-3 style="text-align:right"><span class="positivo" (click)="changemode=!changemode">{{dualValue2.upper}}</span><br> <span class="positivo-small">Max  <ion-icon name="build"></ion-icon> </span></ion-col>
+  </ion-row>
+  <ion-row>
+      <ion-col style="text-align:center" col-4>
+        <div [ngClass]="{'but-time-akt' : timegraph==='graph24h', 'but-time': timegraph!=='graph24h'}" class="but-time" (click)="timegraph='graph24h'">24 H</div>
+        </ion-col>
+      <ion-col style="text-align:center" col-4>
+          <div [ngClass]="{'but-time-akt' : timegraph==='graph30d', 'but-time': timegraph!=='graph30d'}" (click)="timegraph='graph30d'">30 D</div>
+      </ion-col>
+    <!--ion-col style="text-align:center">
+      <span class="positivo" [ngClass]="{'positivo':variacion>0, 'negativo':variacion<=0}" >Last 24H {{variacion}} %</span>
+    </ion-col-->
+    <ion-col style="text-align:center" col-4>
+        <div [ngClass]="{'but-time-akt' : timegraph==='graph1y', 'but-time': timegraph!=='graph1y'}" (click)="timegraph='graph1y'">1 Y</div>
+    </ion-col>
+  </ion-row>
+</ion-grid>
+  <!--ion-item>
+    <ion-range dualKnobs="true" [(ngModel)]="dualValue2" (ngModelChange)="SaveLimit($event)" min="4000" max="8000" step="50" snaps="true"></ion-range>
+  </ion-item-->
 
-  <button ion-button secondary menuToggle>Toggle Menu</button>
+  <div *ngIf="changemode" class="panelchange">
+      <ion-grid>
+          <ion-row>
+            <ion-col col-2>
+                <div class="slider-wrapper">
+                    <input type="range" [(ngModel)]="dualValue2.lower" (ngModelChange)="SaveLimit($event)" class="slider-l" min="0" max="{{btcusd}}" step="10">
+                </div>
+            </ion-col>
+            <ion-col col-8> </ion-col>
+            <ion-col col-2>  
+                <div class="slider-wrapper">
+                    <input type="range" class="slider-r" [(ngModel)]="dualValue2.upper"  (ngModelChange)="SaveLimit($event)" min="{{btcusd | pipesRound}}" max="9000" step="10">
+                </div>
+            </ion-col>
+          </ion-row>
+      </ion-grid>
+  </div>
+
+
+  <graph24 *ngIf="timegraph==='graph24h'"></graph24>
+  <graph30d *ngIf="timegraph==='graph30d'"></graph30d> 
+  <graph1year *ngIf="timegraph==='graph1y'"></graph1year>
+
+<!--div class="row">
+  <div class="col-xs-12">
+    <div style="display: block;">
+    <canvas baseChart width="340" height="300"
+                [datasets]="lineChartData"
+                [labels]="lineChartLabels"
+                [options]="lineChartOptions"
+                [colors]="lineChartColors"
+                [legend]="lineChartLegend"
+                [chartType]="lineChartType"
+></canvas>
+    </div>
+  </div>
+</div-->
+
+<span style="color:aliceblue">{{mensaje}}</span>
+<div>
+<br>
+<div class="button" (click)="Get10Hrs()"> Reload</div>
+<div class="button" (click)="ShowPrice()"> Show Last Price</div>
+<div class="button" (click)="PriceNotification()"> Notifications Test</div>
+</div>
 </ion-content>
+<ion-footer>
+  <ion-toolbar>
+
+    <ion-title>
+        <ion-grid>
+            <ion-row>
+              <ion-col col-3 style="text-align:center" class="active">
+                  <ion-icon name="pulse"></ion-icon><br>
+                  <span class="bottom-text">Price</span>  
+              </ion-col>
+              <ion-col col-3 style="text-align:center" (click)="goToOtherPage()">
+                  <ion-icon name="paper"></ion-icon><br>
+                  <span class="bottom-text" >News</span>
+              </ion-col>
+              <ion-col col-3 style="text-align:center" >
+                  <ion-icon [ngClass]="{'orange-text' : changemode, 'white-text': !changemode}" name="options" (click)="changemode=!changemode"></ion-icon><br>
+                  <span [ngClass]="{'orange-text-bottom' : changemode, 'white-text bottom-text': !changemode}">Alarm</span>  
+              </ion-col>
+              <ion-col col-3 style="text-align:center">
+                  <ion-icon name="notifications"></ion-icon><br>
+                  <span class="bottom-text">On</span>  
+              </ion-col>
+            </ion-row>
+
+          </ion-grid>
+
+    </ion-title>
+  </ion-toolbar>
+</ion-footer>
